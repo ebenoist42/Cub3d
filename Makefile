@@ -6,21 +6,27 @@
 #    By: ebenoist <ebenoist@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/27 10:47:12 by ebenoist          #+#    #+#              #
-#    Updated: 2025/10/27 10:53:44 by ebenoist         ###   ########.fr        #
+#    Updated: 2025/10/28 15:45:36 by ebenoist         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= cube3d
-BONUS_NAME	= cube3d_bonus
-CC		= cc
+NAME		= cub3d
+BONUS_NAME	= cub3d_bonus
+CC			= cc
 CFLAGS		= -Wall -Werror -Wextra -g -Iincludes
-AR		= ar
+AR			= ar
 ARFLAGS		= rcs
 OBJ_DIR		= obj
-FILES	= main.c \
+FILES	=	main.c\
+			check_arg.c\
+			error.c\
+			init_map.c\
+			end_of_programme.c\
+			parsing_map.c\
+			parsing_map2.c\
 
 				
-HEADER		= includes/minishell.h
+HEADER		= includes/cub3d.h
 
 BONUS_SRC	= 
 
@@ -49,12 +55,12 @@ message:
 $(NAME): $(OBJ)
 	@$(MAKE) --no-print-directory -C $(LIBFT_PATH)
 	@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME) -lreadline
-	@printf "$(GREEN)Minishell complete$(RESET)\n"
+	@printf "$(GREEN)cube3d complete$(RESET)\n"
 
 $(BONUS_NAME): $(BONUS_OBJS)
 	@$(MAKE) --no-print-directory -C $(LIBFT_PATH)
 	@$(CC) $(CFLAGS) $(BONUS_OBJS) $(LIBFT) -o $(BONUS_NAME)
-	@printf "$(GREEN)Minishell_bonus complete$(RESET)\n"
+	@printf "$(GREEN)cub3d_bonus complete$(RESET)\n"
 	
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(HEADER)
 	@mkdir -p $(dir $@)
@@ -72,6 +78,6 @@ fclean: clean
 	@$(MAKE) --no-print-directory -C $(LIBFT_PATH) fclean
 
 re: fclean all
-	@printf "$(GREEN)Recompil de Cube3D...$(RESET)\n"
+	@printf "$(GREEN)Recompil de Cub3D...$(RESET)\n"
 
 .PHONY: all clean fclean re

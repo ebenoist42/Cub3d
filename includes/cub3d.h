@@ -6,7 +6,7 @@
 /*   By: ebenoist <ebenoist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 10:46:26 by ebenoist          #+#    #+#             */
-/*   Updated: 2025/10/27 10:58:43 by ebenoist         ###   ########.fr       */
+/*   Updated: 2025/10/28 15:51:23 by ebenoist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,44 @@
 # include <termcap.h>
 # include <termios.h>
 # include <unistd.h>
+
+typedef struct s_game
+{
+	char	**map;
+	void	*img_wall_no;
+	void	*img_wall_ea;
+	void	*img_wall_so;
+	void	*img_wall_we;
+	void	*img_floor;
+	void	*img_player;
+	void	*img_enemy; //bonus
+}	t_game;
+
+typedef struct s_token
+{
+	int NO;
+	int SO;
+	int WE;
+	int EA;
+	int F;
+	int C;
+	int error;
+	
+}	t_token;
+
+
+//Parsing
+int	check_arg(int ac, char **av);
+int	check_map_valide(t_game game);
+int	check_map(char **map, int i);
+
+//Init
+char**	init_maps(char *av);
+
+//Error
+void	free_end_of_programme(t_game game);
+void	ft_error_file(void);
+void	ft_error_malloc(char **map);
+void	free_map(char **map);
 
 #endif
