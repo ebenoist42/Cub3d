@@ -6,7 +6,7 @@
 /*   By: ebenoist <ebenoist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 10:46:26 by ebenoist          #+#    #+#             */
-/*   Updated: 2025/10/28 15:51:23 by ebenoist         ###   ########.fr       */
+/*   Updated: 2025/10/29 14:44:22 by ebenoist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ typedef struct s_token
 //Parsing
 int	check_arg(int ac, char **av);
 int	check_map_valide(t_game game);
-int	check_map(char **map, int i);
+int	check_map(char **map, int i, int j);
 
 //Init
 char**	init_maps(char *av);

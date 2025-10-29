@@ -6,7 +6,7 @@
 /*   By: ebenoist <ebenoist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 15:15:18 by ebenoist          #+#    #+#             */
-/*   Updated: 2025/10/28 15:50:40 by ebenoist         ###   ########.fr       */
+/*   Updated: 2025/10/29 14:44:14 by ebenoist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,14 +56,14 @@ static int	check_texture(char **map, int i)
 	t_token	token;
 
 	memset(&token, 0, sizeof(t_token));
-	while (map[i])
+	while (map[i] && !all_tokens_are_one(token))
 	{
 		token = check_texture_color(map[i], token, 0);
 		i++;
 	}
 	if (token.EA == 1 && token.WE == 1 && token.SO == 1 && token.NO == 1
 		&& token.C == 1 && token.F == 1 && token.error == 0)
-		return (1);
+		return (i);
 	return (0);
 }
 
@@ -74,12 +74,13 @@ int	check_map_valide(t_game game)
 
 	i = 0;
 	map = game.map;
-	if(!check_texture(map, i))
+	i = check_texture(map, i);
+	if(i == 0)
 	{
 		write(2,"Error\nMap invalide, bad texture/colors\n", 39);
 		free_end_of_programme(game);
 	}
-	if(!check_map(map, i))
+	if(!check_map(map, i, 0))
 	{
 		write(2,"Error\nMap invalide\n", 20);
 		free_end_of_programme(game);
