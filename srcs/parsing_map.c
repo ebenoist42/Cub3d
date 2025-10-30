@@ -6,7 +6,7 @@
 /*   By: ebenoist <ebenoist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 15:15:18 by ebenoist          #+#    #+#             */
-/*   Updated: 2025/10/29 14:44:14 by ebenoist         ###   ########.fr       */
+/*   Updated: 2025/10/30 13:04:36 by ebenoist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int	check_map_valide(t_game game)
 		write(2,"Error\nMap invalide, bad texture/colors\n", 39);
 		free_end_of_programme(game);
 	}
-	if(!check_map(map, i, 0))
+	if(!check_map(map, i, 0, 0))
 	{
 		write(2,"Error\nMap invalide\n", 20);
 		free_end_of_programme(game);

@@ -6,7 +6,7 @@
 #    By: ebenoist <ebenoist@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/27 10:47:12 by ebenoist          #+#    #+#              #
-#    Updated: 2025/10/28 15:45:36 by ebenoist         ###   ########.fr        #
+#    Updated: 2025/10/30 14:05:22 by ebenoist         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ FILES	=	main.c\
 			end_of_programme.c\
 			parsing_map.c\
 			parsing_map2.c\
+			parsing_map_utils.c\
 
 				
 HEADER		= includes/cub3d.h
