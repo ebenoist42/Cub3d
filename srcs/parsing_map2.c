@@ -6,7 +6,7 @@
 /*   By: ebenoist <ebenoist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 15:45:52 by ebenoist          #+#    #+#             */
-/*   Updated: 2025/10/30 14:32:27 by ebenoist         ###   ########.fr       */
+/*   Updated: 2025/10/31 10:29:10 by ebenoist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int	check_wall_up_down(char **map, int i, int j)
 		while (map[i][j] && ft_isspace(map[i][j]))
 			j++;
 		if (map[i][j] != '1' && map[i][j] != '\0')
-			return (write(2, "Error\nWall Up or Down Invalid\n", 31), 0);
+			return (ft_putstr_fd("Error\nWall Up or Down Invalid\n", 2), 0);
 		if (!map[i][j] || map[i][j] == '\n')
 			break ;
 		j++;

@@ -6,7 +6,7 @@
 /*   By: ebenoist <ebenoist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 10:27:48 by ebenoist          #+#    #+#             */
-/*   Updated: 2025/10/28 15:32:12 by ebenoist         ###   ########.fr       */
+/*   Updated: 2025/10/31 10:29:53 by ebenoist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_error_file(void)
 {
-	write(2, "Error\nWrong File\n", 17);
+	ft_putstr_fd("Error\nWrong File\n", 2);
 	exit(1);
 }
 
@@ -22,7 +22,7 @@ void	ft_error_malloc(char **map)
 {
 	if (map)
 		free_map(map);
-	write(2, "Error\nMemory Allocation Error\n", 31);
+	ft_putstr_fd("Error\nMemory Allocation Error\n", 2);
 	exit(1);
 }
 

@@ -6,26 +6,31 @@
 /*   By: ebenoist <ebenoist@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 15:15:18 by ebenoist          #+#    #+#             */
-/*   Updated: 2025/10/30 13:04:36 by ebenoist         ###   ########.fr       */
+/*   Updated: 2025/10/31 10:31:00 by ebenoist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-static int all_tokens_are_one(t_token token)
+static int	all_tokens_are_one(t_token token)
 {
-	if (token.NO != 1) return (0);
-	if (token.SO != 1) return (0);
-	if (token.WE != 1) return (0);
-	if (token.EA != 1) return (0);
-	if (token.F != 1) return (0);
-	if (token.C != 1) return (0);
+	if (token.NO != 1)
+		return (0);
+	if (token.SO != 1)
+		return (0);
+	if (token.WE != 1)
+		return (0);
+	if (token.EA != 1)
+		return (0);
+	if (token.F != 1)
+		return (0);
+	if (token.C != 1)
+		return (0);
 	return (1);
 }
 
 static t_token	check_texture_color(char *map, t_token token, int j)
 {
-
 	while (map[j] && !all_tokens_are_one(token))
 	{
 		while (map[j] && ft_isspace(map[j]))
@@ -69,21 +74,21 @@ static int	check_texture(char **map, int i)
 
 int	check_map_valide(t_game game)
 {
-	int				i;
+	int		i;
 	char	**map;
 
 	i = 0;
 	map = game.map;
 	i = check_texture(map, i);
-	if(i == 0)
+	if (i == 0)
 	{
-		write(2,"Error\nMap invalide, bad texture/colors\n", 39);
+		ft_putstr_fd("Error\nMap invalide, bad texture/colors\n", 2);
 		free_end_of_programme(game);
 	}
-	if(!check_map(map, i, 0, 0))
+	if (!check_map(map, i, 0, 0))
 	{
-		write(2,"Error\nMap invalide\n", 20);
+		ft_putstr_fd("Error\nMap invalide\n", 2);
 		free_end_of_programme(game);
 	}
-	return(1);
+	return (1);
 }
